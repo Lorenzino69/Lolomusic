@@ -23,7 +23,7 @@ import {TrackMixcloudModel} from '../../../api/tracks/track-mixcloud.model';
 import {TracksDeezerCollection} from '../../../api/tracks/tracks-deezer.collection';
 import {TrackDeezerModel} from '../../../api/tracks/track-deezer.model';
 import {ClientDetector, ClientNames} from '../../../shared/services/client-detector.service';
-import {TracksSpotifyCollection} from '../../../api/tracks/track-spotify.collection';
+import {TracksSpotifyCollection} from '../../../api/tracks/tracks-spotify.collection';
 import {TrackSpotifyModel} from '../../../api/tracks/track-spotify.model';
 
 @Component({

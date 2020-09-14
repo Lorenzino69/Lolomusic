@@ -5,6 +5,7 @@ import {dynamicInstance} from '../../backbone/decorators/dynamic-instance.decora
 import {AuxappCollection} from '../auxapp/auxapp.collection';
 import {AccountAuxappModel} from './account-auxapp.model';
 import {AccountDeezerModel} from './account-deezer.model';
+import {AccountSpotifyModel} from './account-spotify.model';
 
 export class AccountsCollection<TModel extends IAccount> extends AuxappCollection<TModel> {
   @dynamicInstance({
@@ -13,7 +14,8 @@ export class AccountsCollection<TModel extends IAccount> extends AuxappCollectio
       auxapp: AccountAuxappModel,
       youtube: AccountYoutubeModel,
       soundcloud: AccountSoundcloudModel,
-      deezer: AccountDeezerModel
+      deezer: AccountDeezerModel,
+      spotify: AccountSpotifyModel
     }
   })
   model = null;

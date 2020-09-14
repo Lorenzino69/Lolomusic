@@ -11,8 +11,6 @@ import {AuthenticatedUserPlaylistYoutubeModel} from '../../../api/authenticated-
 import {AuthenticatedUserPlaylistSoundcloudModel} from '../../../api/authenticated-user/playlist/authenticated-user-playlist-soundcloud.model';
 import {DragAndDropService, DragAndDropStates, IDragAndDropData} from '../../../shared/services/drag-and-drop';
 import {ITrack} from '../../../api/tracks/track.interface';
-import {TrackSoundcloudModel} from '../../../api/tracks/track-soundcloud.model';
-import {TrackYoutubeModel} from '../../../api/tracks/track-youtube.model';
 import {IPlaylist} from '../../../api/playlists/playlist.interface';
 import {LayoutChangeTypes, LayoutService} from '../../../shared/services/layout';
 import {ExternalUserAuthenticator} from '../../../authenticated-user/services/external-authenticator.class';
@@ -21,7 +19,8 @@ import {filter} from 'rxjs/internal/operators';
 import {PrivacyManager} from '../../services/privacy-manager';
 import {PrivacyConfigModalOpener} from '../privacy-config/privacy-config';
 import {ProviderMap} from '../../../shared/src/provider-map.class';
-import {TrackMixcloudModel} from '../../../api/tracks/track-mixcloud.model';
+import {AuthenticatedUserPlaylistSpotifyModel} from '../../../api/authenticated-user/playlist/authenticated-user-playlist-spotify.model';
+import {AuthenticatedUserAccountSpotifyModel} from '../../../api/authenticated-user/account/authenticated-user-account-spotify.model';
 import {AuthenticatedUserAccountDeezerModel} from '../../../api/authenticated-user/account/authenticated-user-account-deezer.model';
 
 const packageJSON = require('../../../../../../package.json');
@@ -70,16 +69,16 @@ export class NavComponent implements OnInit {
       tmpPlaylistModel: new AuthenticatedUserPlaylistYoutubeModel(),
       playlistCollapsed: false,
       playlistCollapsedBeforeDragVal: false
+    },
+    spotify: {
+      providerId: ProviderMap.spotify.id,
+      title: ProviderMap.spotify.title,
+      icon: ProviderMap.spotify.icon,
+      accountModel: AuthenticatedUserAccountSpotifyModel,
+      tmpPlaylistModel: new AuthenticatedUserPlaylistSpotifyModel(),
+      playlistCollapsed: false,
+      playlistCollapsedBeforeDragVal: false
     }
-    // spotify: {
-    //   providerId: ProviderMap.spotify.id,
-    //   title: ProviderMap.spotify.title,
-    //   icon: ProviderMap.spotify.icon,
-    //   accountModel: AuthenticatedUserAccountSpotifyModel,
-    //   tmpPlaylistModel: new AuthenticatedUserPlaylistYoutubeModel(),
-    //   playlistCollapsed: false,
-    //   playlistCollapsedBeforeDragVal: false
-    // }
   };
 
   public authenticatedUser: AuthenticatedUserModel;
@@ -190,6 +189,8 @@ export class NavComponent implements OnInit {
     this.availableProviderMap.soundcloud.playlistCollapsed = true;
     this.availableProviderMap.deezer.playlistCollapsedBeforeDragVal = !!this.availableProviderMap.deezer.playlistCollapsed;
     this.availableProviderMap.deezer.playlistCollapsed = true;
+    this.availableProviderMap.spotify.playlistCollapsedBeforeDragVal = !!this.availableProviderMap.spotify.playlistCollapsed;
+    this.availableProviderMap.spotify.playlistCollapsed = true;
     this.el.nativeElement.classList.add('open');
     this.update();
   }
@@ -198,6 +199,8 @@ export class NavComponent implements OnInit {
     this.availableProviderMap.auxapp.playlistCollapsed = this.availableProviderMap.auxapp.playlistCollapsedBeforeDragVal;
     this.availableProviderMap.soundcloud.playlistCollapsed = this.availableProviderMap.soundcloud.playlistCollapsedBeforeDragVal;
     this.availableProviderMap.youtube.playlistCollapsed = this.availableProviderMap.youtube.playlistCollapsedBeforeDragVal;
+    this.availableProviderMap.spotify.playlistCollapsed = this.availableProviderMap.spotify.playlistCollapsedBeforeDragVal;
+    this.availableProviderMap.deezer.playlistCollapsed = this.availableProviderMap.deezer.playlistCollapsedBeforeDragVal;
     this.el.nativeElement.classList.remove('open');
     this.update();
   }

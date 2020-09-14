@@ -11,6 +11,7 @@ import {TrackYoutubeModel} from '../../tracks/track-youtube.model';
 import {PlayqueueItemsAuxappCollection} from './playqueue-items-auxapp.collection';
 import {TrackDeezerModel} from '../../tracks/track-deezer.model';
 import {TrackAuxappModel} from '../../tracks/track-auxapp.model';
+import {TrackSpotifyModel} from '../../tracks/track-spotify.model';
 
 export class PlayqueueItemAuxappModel
   extends PlaylistItemAuxappModel {
@@ -55,6 +56,7 @@ export class PlayqueueItemAuxappModel
       youtube: TrackYoutubeModel,
       mixcloud: TrackMixcloudModel,
       deezer: TrackDeezerModel,
+      spotify: TrackSpotifyModel,
       default: TrackAuxappModel
     }
   })

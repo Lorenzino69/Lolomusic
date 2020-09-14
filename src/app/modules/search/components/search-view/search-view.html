@@ -126,26 +126,26 @@
 
       <div *ngIf="tracksDeezer.length>0"
            class="results">
-        <app-alert-box *ngIf="isConnected">
-          <div class="content-container">
-            <div class="logo">
-              <app-aux-app-logo></app-aux-app-logo>
-            </div>
-            <div class="text-content">
-              <h3>Connection requise</h3>
-            </div>
-          </div>
-          <div class="btn-row">
-            <a href="https://aux.app" class="btn btn-primary">Connection a Deezer</a>
-          </div>
-        </app-alert-box>
-<!--        <app-search-result-tracks [tracks]="tracksDeezer">-->
-<!--          <app-filter-form [collection]="tracksDeezer">-->
-<!--            <app-youtube-duration-filter label="Duration"-->
-<!--                                         filterProperty="duration">-->
-<!--            </app-youtube-duration-filter>-->
-<!--          </app-filter-form>-->
-<!--        </app-search-result-tracks>-->
+<!--        <app-alert-box *ngIf="isConnected">-->
+<!--          <div class="content-container">-->
+<!--            <div class="logo">-->
+<!--              <app-aux-app-logo></app-aux-app-logo>-->
+<!--            </div>-->
+<!--            <div class="text-content">-->
+<!--              <h3>Connection requise</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="btn-row">-->
+<!--            <a href="https://aux.app" class="btn btn-primary">Connection a Deezer</a>-->
+<!--          </div>-->
+<!--        </app-alert-box>-->
+        <app-search-result-tracks [tracks]="tracksDeezer">
+          <app-filter-form [collection]="tracksDeezer">
+            <app-youtube-duration-filter label="Duration"
+                                         filterProperty="duration">
+            </app-youtube-duration-filter>
+          </app-filter-form>
+        </app-search-result-tracks>
       </div>
 
       <app-empty-state *ngIf="tracksDeezer.length === 0 && tracksDeezer.isSyncing"
@@ -181,19 +181,6 @@
       <div *ngIf="tracksSpotify.queryParams.q && tracksSpotify.length === 0 && !isFetching"
                        title="No tracks were found"
                        icon="fa fa-search">
-        <app-alert-box>
-          <div class="content-container">
-            <div class="logo">
-              <app-aux-app-logo></app-aux-app-logo>
-            </div>
-            <div class="text-content">
-              <h3>Connection requise</h3>
-            </div>
-          </div>
-          <div class="btn-row">
-            <a href="https://aux.app" class="btn btn-primary">Connection a Spotify</a>
-          </div>
-        </app-alert-box>
       </div>
     </app-tab-pane>
   </app-tab-bar>
