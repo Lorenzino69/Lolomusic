@@ -12,6 +12,7 @@ import {PlayqueueItemAuxappModel} from '../../api/playqueue/playqueue-item/playq
 import {DeezerPlayerComponent} from '../components/deezer-player/deezer-player';
 import {HeadlessPlayerComponent} from '../components/headless-player/headless-player';
 import {EmptyPlayerComponent} from '../components/empty-player/empty-player';
+import {SpotifyPlayerComponent} from '../components/spotify-player/spotify-player';
 
 @Injectable()
 export class PlayerFactory {
@@ -20,7 +21,8 @@ export class PlayerFactory {
     soundcloud: SoundcloudPlayerComponent,
     youtube: YoutubePlayerComponent,
     mixcloud: MixcloudPlayerComponent,
-    deezer: DeezerPlayerComponent
+    deezer: DeezerPlayerComponent,
+    spotify: SpotifyPlayerComponent
   };
   private _resolver: ComponentFactoryResolver;
   private _container: ViewContainerRef;

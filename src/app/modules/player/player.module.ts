@@ -18,6 +18,7 @@ import {HeadlessPlayerComponent} from './components/headless-player/headless-pla
 import {AuthenticatedUserModule} from '../authenticated-user/authenticated-user.module';
 import {RemoteDeviceSelectorComponent} from './components/remote-device-selector/remote-device-selector';
 import {EmptyPlayerComponent} from './components/empty-player/empty-player';
+import {SpotifyPlayerComponent} from './components/spotify-player/spotify-player';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import {EmptyPlayerComponent} from './components/empty-player/empty-player';
     PlayerComponent,
     VolumeBtnComponent,
     RemoteDeviceSelectorComponent,
-    EmptyPlayerComponent
+    EmptyPlayerComponent,
+    SpotifyPlayerComponent
   ],
   exports: [
     PlayerComponent

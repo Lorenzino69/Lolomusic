@@ -221,6 +221,15 @@ export class SearchViewComponent implements AfterViewInit {
       this.isFetching = false;
     });
 
+    this.tracksSpotify.on('request', () => {
+      this.isFetching = true;
+      this.showWelcomeText = false;
+    });
+
+    this.tracksSpotify.on('sync error', () => {
+      this.isFetching = false;
+    });
+
     setTimeout(this.setIsConnected.bind(this), 2000);
   }
 }
